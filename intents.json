@@ -1,0 +1,147 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "requests": [
+        "Hi",
+        "Hey",
+        "Hello",
+        "Good day",
+        "Greetings"
+      ],
+      "responses": [
+        "Hey",
+        "Hello, thanks for visiting",
+        "Hi there, what can I do for you?",
+        "Hi there, how can I help?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "requests": ["Bye", "See you later", "Goodbye"],
+      "responses": [
+        "Have a nice day"
+      ]
+    },
+    {
+      "tag": "thanks",
+      "requests": ["Thanks", "Thank you", "That's helpful", "Thanks a lot!"],
+      "responses": ["Happy to help!", "Any time!", "My pleasure"]
+    },
+    {
+      "tag": "ScheduleMeeting",
+      "requests": [
+        "I want to schedule a meeting",
+        "Set up a meeting for me, please",
+        "Can we arrange a meeting?",
+        "Please book a meeting",
+        "Organize a team meeting",
+        "Let's fix a meeting",
+        "Could you arrange meeting?",
+        "Schedule a project briefing",
+        "I need to set a meeting",
+        "Plan a follow-up meeting"
+      ],
+      "responses": [
+        "Sure, I can help you schedule a meeting. When would you like it to be exactly?"
+      ]
+    },
+    {
+      "tag": "EventTitle",
+      "requests": [
+        "The meeting topic will be about this",
+        "Set meeting title as",
+        "I want this meeting to be about",
+        "My meeting title is:",
+        "This is the main topic of event"
+      ],
+      "responses": [
+        "Sure, I will set the topic for you."
+      ]
+    },
+    {
+      "tag": "When",
+      "requests": [
+        "Monday",
+        "am",
+        "pm",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+        "10 PM",
+        "2 AM",
+        "How about next Monday at 3 PM?",
+        "Let's aim for sometime later this week, maybe Thursday afternoon?",
+        "Can we do it next Wednesday morning?",
+        "I'm thinking early next week, possibly Tuesday.",
+        "Is Friday this week available, around 10 AM?",
+        "I prefer sometime early in the morning next Thursday.",
+        "Could we schedule it for the first Monday of next month?",
+        "What about this Friday at 2 PM?",
+        "I'm free next Tuesday after lunch, say around 1:30 PM?",
+        "Let's set it for next Wednesday, any time in the afternoon works for me."
+      ],
+      "responses": [
+        "Sure, I can help you schedule a meeting. When would you like it to be?"
+      ]
+    },
+    {
+      "tag": "CancelMeeting",
+      "requests": [
+        "Cancel my meeting",
+        "I need to cancel an event",
+        "I won't be able to make it, cancel the meeting"
+      ],
+      "responses": [
+        "I can cancel the meeting for you. Could you please specify which meeting you are referring to?"
+      ]
+    },
+    {
+      "tag": "InquireMeetingDetails",
+      "requests": [
+        "What are the details of my next meeting?",
+        "When is my meeting scheduled?",
+        "Tell me about my upcoming events"
+      ],
+      "responses": [
+        "Let me check the details of your next meeting..."
+      ]
+    },
+    {
+      "tag": "RescheduleMeeting",
+      "requests": [
+        "Can we reschedule the meeting?",
+        "I need to change the date of my meeting",
+        "Move my meeting to another day"
+      ],
+      "responses": [
+        "Of course, we can reschedule. What new date and time do you prefer for the meeting?"
+      ]
+    },
+    {
+      "tag": "AskAvailableDays",
+      "requests": [
+        "What days am I available this week?",
+        "Can you tell me my available days this month?",
+        "Show me my free days in the next week"
+      ],
+      "responses": [
+        "You are available on these days below."
+      ]
+    },
+    {
+      "tag": "AskAvailableHours",
+      "requests": [
+        "What hours am I available tomorrow?",
+        "Can you show me my available hours on Friday?",
+        "I need to know my free hours for a specific day"
+      ],
+      "responses": [
+        "On {}, You are available from {} to {}."
+      ]
+    }
+  ]
+}
