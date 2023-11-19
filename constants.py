@@ -4,9 +4,6 @@ WELCOME_MESSAGE = "Welcome to Scheduler Bot! I'm here to help you manage your ev
                   "Feel free to ask me to schedule, reschedule, or inquire about any event details. " \
                   "Let's make your planning easier!"
 
-GOOGLE_API_KEY = ""
-
-OPENAI_API_KEY = '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'
 
 GPT_PROMPT_FOR_NECESSARY_FORMAT = """ Can you extract key points of schedule from this sentence: {}
                 Only give this exact json as an answer even if the fields are empty, nothing else:

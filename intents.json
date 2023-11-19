@@ -11,8 +11,8 @@
       ],
       "responses": [
         "Hey",
-        "Hello, thanks for visiting",
-        "Hi there, what can I do for you?",
+        "Hello there!",
+        "Hi there, let's schedule a meeting :)",
         "Hi there, how can I help?"
       ]
     },
@@ -35,10 +35,9 @@
         "Set up a meeting for me, please",
         "Can we arrange a meeting?",
         "Please book a meeting",
-        "Organize a team meeting",
-        "Let's fix a meeting",
+        "Organize a meeting",
         "Could you arrange meeting?",
-        "Schedule a project briefing",
+        "Schedule an event",
         "I need to set a meeting",
         "Plan a follow-up meeting"
       ],
