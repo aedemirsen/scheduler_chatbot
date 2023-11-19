@@ -84,7 +84,7 @@
         "Let's set it for next Wednesday, any time in the afternoon works for me."
       ],
       "responses": [
-        "Sure, I can help you schedule a meeting. When would you like it to be?"
+        "Sure, I can help you schedule a meeting. When would you like it to be exactly?"
       ]
     },
     {
@@ -103,11 +103,13 @@
       "requests": [
         "What are the details of my next meeting?",
         "When is my meeting scheduled?",
-        "Tell me about my upcoming events"
+        "Tell me about my upcoming events",
+        "I need to know current meeting details",
+        "Tell me current meeting information",
+        "What stage are we?",
+        "Give me current meeting information"
       ],
-      "responses": [
-        "Let me check the details of your next meeting..."
-      ]
+      "responses": ["Here are the current meeting details:\n{}"]
     },
     {
       "tag": "RescheduleMeeting",

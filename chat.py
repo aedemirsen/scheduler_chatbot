@@ -2,6 +2,8 @@
 import random
 import json
 import torch
+
+import constants
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 import service
@@ -26,7 +28,6 @@ def load_chatbot_model():
 
 # Function to get response from the chatbot
 def get_chatbot_response(sentence):
-    print(sentence)
     tokenize_sentence = tokenize(sentence)
     x = bag_of_words(tokenize_sentence, data['all_words'])
     x = x.reshape(1, x.shape[0])
@@ -40,16 +41,23 @@ def get_chatbot_response(sentence):
     probs = torch.softmax(output, dim=1)
     prob = probs[0][predicted.item()]
     if prob.item() > 0.75:
+        print("Success - {}", tag)
         if tag == 'EventTitle':
             # set title
-            service.set_title(sentence)
+            return service.set_title(sentence)
         elif tag == 'When':
             # ask gpt for necessary data
             return service.ask_gpt_for_necessary_data(sentence)
+        elif tag == 'InquireMeetingDetails':
+            for intent in intents['intents']:
+                if tag == intent["tag"]:
+                    return str(random.choice(intent['responses']))\
+                        .format(service.format_schedule(constants.NECESSARY_SCHEDULING_FORMAT))
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 return random.choice(intent['responses'])
     else:
+        print("Fail - {}", tag)
         # ask gpt for help
         # gpt will return tag
         gpt_response = service.ask_gpt_for_tag(sentence)

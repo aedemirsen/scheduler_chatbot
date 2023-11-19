@@ -7,6 +7,7 @@ app = Flask(__name__)
 @app.route('/request', methods=['POST'])
 def request_to_chatbot():
     prompt = request.json.get("prompt")
+    print(prompt)
     response = service.response(prompt)
     return jsonify(response), 200
 

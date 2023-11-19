@@ -46,22 +46,34 @@ def extract_title(sentence):
 def set_title(sentence):
     constants.NECESSARY_SCHEDULING_FORMAT['title'] = extract_title(sentence)
     print(constants.NECESSARY_SCHEDULING_FORMAT)
+    return return_necessary_fields_info(constants.NECESSARY_SCHEDULING_FORMAT)
 
 
-def ask_gpt_for_necessary_data(when):
-    # gpt service
-    res = gpt_response(constants.GPT_PROMPT_FOR_NECESSARY_FORMAT.format(when))
-    res = str_to_json(res)
-    res = merge_dictionaries(constants.NECESSARY_SCHEDULING_FORMAT, res)
+def format_schedule(schedule):
+    formatted_string = (
+        f"Hour: {schedule['hour']}\n"
+        f"Minute: {schedule['minute']}\n"
+        f"Title: {schedule['title']}\n"
+        f"AM/PM: {schedule['am/pm']}\n"
+        f"Day: {schedule['day']}\n"
+        f"Month: {schedule['month']}\n"
+        f"Year: {schedule['year']}"
+    )
+    return formatted_string
 
+
+def return_necessary_fields_info(res):
     # create appropriate response
     # find undefined fields
+    print(res)
     undefined_fields = find_empty_fields(res)
+    print(undefined_fields)
     if 'month' in undefined_fields:
         res['month'] = 'current'
     if 'year' in undefined_fields:
         res['year'] = 'current'
     undefined_fields = find_empty_fields(res)
+    print(undefined_fields)
     constants.NECESSARY_SCHEDULING_FORMAT = res
     if len(undefined_fields) == 0:
         # run google service to create event
@@ -70,8 +82,17 @@ def ask_gpt_for_necessary_data(when):
         success = True
         return constants.SUCCESSFULLY_CREATED if success else constants.FAIL_WHILE_CREATION
 
+    print('XXXX')
     # ask user for undefined fields
     return constants.ASK_UNDEFINED_FIELDS + ', '.join(undefined_fields)
+
+
+def ask_gpt_for_necessary_data(when):
+    # gpt service
+    res = gpt_response(constants.GPT_PROMPT_FOR_NECESSARY_FORMAT.format(when))
+    res = str_to_json(res)
+    res = merge_dictionaries(constants.NECESSARY_SCHEDULING_FORMAT, res)
+    return return_necessary_fields_info(res)
 
 
 def ask_gpt_for_tag(sentence):
