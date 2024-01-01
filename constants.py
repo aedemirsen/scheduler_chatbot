@@ -20,8 +20,8 @@ GPT_PROMPT_FOR_NECESSARY_FORMAT = """ Can you extract key points of schedule fro
 
 EXTRACT_TITLE = """Extract event/meeting title from this sentence(Give only the title, nothing else):"{}" """
 
-GPT_PROMPT_FOR_TAG = """ [greeting,goodbye,thanks,ScheduleMeeting,When,CancelMeeting,InquireMeeting,
-                        RescheduleMeeting,EventTitle,AskAvailableDays,AskAvailableHours]
+GPT_PROMPT_FOR_TAG = """ [greeting,wellbeing,goodbye,thanks,ScheduleMeeting,When,CancelMeeting,InquireMeeting,
+                        RescheduleMeeting,EventTitle,AskAvailableDays,AskAvailableHours,none]
                         classify this sentence according to tags above. 
                         Which tag is the best for this sentence. (Give only the tag nothing else): "{}" """
 
@@ -37,6 +37,6 @@ NECESSARY_SCHEDULING_FORMAT = {
 
 ASK_UNDEFINED_FIELDS = "Please provide information for these fields: "
 
-SUCCESSFULLY_CREATED = 'Event is successfully created in your Google Calendar!'
+SUCCESSFULLY_CREATED = """ Event is successfully created in your Google Calendar! Here are the details: \n\n {} """
 
 FAIL_WHILE_CREATION = 'There has been an error while creating the event :('

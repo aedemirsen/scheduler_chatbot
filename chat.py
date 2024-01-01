@@ -57,7 +57,6 @@ def get_chatbot_response(sentence):
             if tag == intent["tag"]:
                 return random.choice(intent['responses'])
     else:
-        print("Fail - {}", tag)
         # ask gpt for help
         # gpt will return tag
         gpt_response = service.ask_gpt_for_tag(sentence)
@@ -65,6 +64,8 @@ def get_chatbot_response(sentence):
         for intent in intents['intents']:
             if gpt_response == intent["tag"]:
                 return random.choice(intent['responses'])
+            elif gpt_response == 'none':
+                return 'I do not understand what you mean...'
 
 
 # Load the model

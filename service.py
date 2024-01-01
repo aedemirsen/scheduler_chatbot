@@ -1,10 +1,10 @@
 import chat
-import os
 import json
 import constants
+from decouple import config
 from openai import OpenAI
 
-api_key = os.getenv("OPENAI_API_KEY")
+api_key = config('OPENAI_API_KEY')
 client = OpenAI(api_key=api_key)
 
 
@@ -65,24 +65,22 @@ def format_schedule(schedule):
 def return_necessary_fields_info(res):
     # create appropriate response
     # find undefined fields
-    print(res)
     undefined_fields = find_empty_fields(res)
-    print(undefined_fields)
     if 'month' in undefined_fields:
         res['month'] = 'current'
     if 'year' in undefined_fields:
         res['year'] = 'current'
     undefined_fields = find_empty_fields(res)
-    print(undefined_fields)
     constants.NECESSARY_SCHEDULING_FORMAT = res
     if len(undefined_fields) == 0:
         # run google service to create event
         # send response whether successful or not
         print(constants.NECESSARY_SCHEDULING_FORMAT)
         success = True
-        return constants.SUCCESSFULLY_CREATED if success else constants.FAIL_WHILE_CREATION
+        return constants.SUCCESSFULLY_CREATED.format(format_schedule(constants.NECESSARY_SCHEDULING_FORMAT)) \
+            if success \
+            else constants.FAIL_WHILE_CREATION
 
-    print('XXXX')
     # ask user for undefined fields
     return constants.ASK_UNDEFINED_FIELDS + ', '.join(undefined_fields)
 

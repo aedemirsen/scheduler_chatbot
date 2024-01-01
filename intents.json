@@ -10,10 +10,27 @@
         "Greetings"
       ],
       "responses": [
-        "Hey",
         "Hello there!",
         "Hi there, let's schedule a meeting :)",
         "Hi there, how can I help?"
+      ]
+    },
+    {
+      "tag": "wellbeing",
+      "requests": [
+        "How are you?",
+        "How's it going?",
+        "How are you doing?",
+        "How's your day?",
+        "Are you okay?",
+        "What's up?",
+        "How's everything?",
+        "Feeling good?"
+      ],
+      "responses": [
+        "I'm just a computer program, so I don't have feelings, but I'm here and ready to assist you!",
+        "Thank you for asking! I'm here to help you with any questions or tasks you have.",
+        "I'm just a bunch of code, but I'm always at your service. How can I assist you today?"
       ]
     },
     {
@@ -52,7 +69,8 @@
         "Set meeting title as",
         "I want this meeting to be about",
         "My meeting title is:",
-        "This is the main topic of event"
+        "This is the main topic of event",
+        "title:"
       ],
       "responses": [
         "Sure, I will set the topic for you."
@@ -107,6 +125,8 @@
         "I need to know current meeting details",
         "Tell me current meeting information",
         "What stage are we?",
+        "Current setup",
+        "Meeting details",
         "Give me current meeting information"
       ],
       "responses": ["Here are the current meeting details:\n{}"]

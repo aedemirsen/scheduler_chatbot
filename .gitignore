@@ -3,3 +3,5 @@ venv
 .idea
 data.pth
 scheduler_bot.iml
+calendar_credentials.json
+.env
